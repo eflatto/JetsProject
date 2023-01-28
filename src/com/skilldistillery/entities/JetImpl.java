@@ -13,11 +13,10 @@ public class JetImpl extends Jet {
 		System.out.println("Model: " + model
 				+ ", Speed: " + speed
 				+ " MPH, Range: " + range 
-				+ " miles, Price: $" + price);
+				+ " miles");
 		System.out.println("This jet will fly for "+ Math.round(time) + " hours");
 		System.out.println();
 	}
-
 
 	@Override
 	public double getSpeedInMach() {
@@ -25,6 +24,22 @@ public class JetImpl extends Jet {
 		double mach;
 		mach = speed / 767.269;
 		return mach;
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof JetImpl))
+			return false;
+		return true;
 	}
 
 }

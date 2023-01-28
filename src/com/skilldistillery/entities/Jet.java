@@ -7,15 +7,18 @@ public abstract class Jet {
 	protected double speed;
 	protected int range;
 	protected long price;
+	protected String type;
 	
 	
+	
+
 	public Jet(String model, double speed, int range, long price) {
 		this.model = model;
 		this.speed = speed;
 		this.range = range;
 		this.price = price;
 	}
-	
+
 	public abstract void fly();
 	
 	public abstract double getSpeedInMach();
@@ -27,20 +30,20 @@ public abstract class Jet {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(model, price, range, speed);
+		return Objects.hash(model, price, range, speed, type);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof Jet))
 			return false;
 		Jet other = (Jet) obj;
 		return Objects.equals(model, other.model) && price == other.price && range == other.range
-				&& Double.doubleToLongBits(speed) == Double.doubleToLongBits(other.speed);
+				&& Double.doubleToLongBits(speed) == Double.doubleToLongBits(other.speed)
+				&& Objects.equals(type, other.type);
 	}
+
 	
 }
