@@ -79,7 +79,6 @@ public class AirField {
 
 		System.out.println("Adding Jet to Fleet");
 		System.out.println("Please type in model of your jet");
-		sc.next();
 		model1 = sc.nextLine();
 		System.out.println("Please type in the max speed of the jet");
 		speed1 = sc.nextDouble();
