@@ -1,1 +1,6 @@
 # JetsProject
+
+## Description
+This project is a representation of a jet management system. The program includes an abstract class Jet and three classes that extend it FighterJet, CargoPlane, and JetImpl. The Jet class includes the common properties and methods shared by all jets, such as model, speed, range, price, and the method fly() and getSpeedInMach(). The FighterJet, CargoPlane, and JetImpl classes all extend the Jet class and include additional properties and methods specific to their respective types of jets. The FighterJet class includes properties and methods specific to fighter jets, the CargoPlane class includes properties and methods specific to cargo planes, and the JetImpl class includes properties and methods specific to commercial jets.
+
+The program reads in the jet information from a .txt file, where each line contains the following information: <jetType>,<model>,<speed>,<range>,<price>. This information is then used to create new jet objects and add them to an ArrayList of jets.
