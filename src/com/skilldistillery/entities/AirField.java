@@ -10,13 +10,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-
-
 public class AirField {
 
 	private Scanner sc = new Scanner(System.in);
 
 	private List<Jet> jetsList = new ArrayList<>();
+	private List<Pilot> pilotList = new ArrayList<>();
 
 	public AirField() {
 
@@ -103,21 +102,21 @@ public class AirField {
 		}
 
 		model2 = sc.nextLine();
-		 Iterator<Jet> jets = jetsList.iterator();
-		    while (jets.hasNext()) {
-		        Jet jet = jets.next();
-		        if (jet.model.equalsIgnoreCase(model2)) {
-		            jets.remove();
-		            jetFound = true;
-		            break;
-		        }
-		    }
+		Iterator<Jet> jets = jetsList.iterator();
+		while (jets.hasNext()) {
+			Jet jet = jets.next();
+			if (jet.model.equalsIgnoreCase(model2)) {
+				jets.remove();
+				jetFound = true;
+				break;
+			}
+		}
 
-		    if(jetFound) {
-		        System.out.println("Jet removed successfully.");
-		    } else {
-		        System.out.println("No jet found with the model " + model2 + ".");
-		    }
+		if (jetFound) {
+			System.out.println("Jet removed successfully.");
+		} else {
+			System.out.println("No jet found with the model " + model2 + ".");
+		}
 	}
 
 	public void listFleet() {
@@ -152,6 +151,58 @@ public class AirField {
 			}
 		}
 		return longestRangeJet;
+
+	}
+
+	public void addAPilot() {
+		String model;
+		boolean jetFound1 = false;
+		System.out.print("What is your name ");
+		String name = sc.next();
+		System.out.print("what is your callsign ");
+		String callSign = sc.next();
+
+		for (Jet jet : jetsList) {
+			System.out.println(jet.model);
+		}
+		System.out.print("What model plane do you want fly? ");
+		model = sc.next();
+
+		Pilot pilot = new Pilot(name, callSign, null);
+		Iterator<Jet> jetIterator = jetsList.iterator();
+		while (jetIterator.hasNext()) {
+			Jet jet = jetIterator.next();
+			if (jet.model.trim().equalsIgnoreCase(model)) {
+				jet.setPilot(pilot);
+				pilot.setModel(model);
+				jetFound1 = true;
+				pilotList.add(pilot);
+				break;
+
+			}
+
+		}
+		if (jetFound1) {
+			System.out.println(pilot);
+		} else {
+			System.out.println("No jet found with the model " + model + ".");
+
+		}
+
+	}
+
+	public void listPilots() {
+		if (getPilotList().isEmpty()) {
+			System.out.println("There are no pilots in the hangar!");
+		} 
+
+		for (Pilot pilot : getPilotList()) {
+				System.out.println(pilot + "\n");
+		}
+	}
+
+	public List<Pilot> getPilotList() {
+		return pilotList;
 	}
 
 }

@@ -8,6 +8,7 @@ public abstract class Jet {
 	protected int range;
 	protected long price;
 	protected String type;
+	protected Pilot pilot;
 	
 	
 	
@@ -18,6 +19,32 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
+
+	
+
+	public Jet(String model, double speed, int range, long price, String type, Pilot pilot) {
+		super();
+		this.model = model;
+		this.speed = speed;
+		this.range = range;
+		this.price = price;
+		this.type = type;
+		this.pilot = pilot;
+	}
+
+
+
+	public Pilot getPilot() {
+		return pilot;
+	}
+
+
+
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
+	}
+
+
 
 	public abstract void fly();
 	

@@ -7,11 +7,12 @@ import com.skilldistillery.entities.CargoCarrier;
 import com.skilldistillery.entities.CargoPlane;
 import com.skilldistillery.entities.CombatReady;
 import com.skilldistillery.entities.Jet;
+import com.skilldistillery.entities.Pilot;
 
 public class JetsApp {
 	private AirField airField = new AirField();
 	private Scanner sc = new Scanner(System.in);
-
+	private Pilot pilot = new Pilot();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JetsApp ja = new JetsApp();
@@ -46,7 +47,9 @@ public class JetsApp {
 			System.out.println("*    6. Dogfight!                   *");
 			System.out.println("*    7. Add a jet to Fleet          *");
 			System.out.println("*    8. Remove a jet from Fleet     *");
-			System.out.println("*    9. Quit                        *");
+			System.out.println("*    9. Add a pilot                 *");
+			System.out.println("*    10. List Pilots                *");
+			System.out.println("*    11. Quit                       *");
 			System.out.println("*                                   *");
 			System.out.println("*************************************");
 			System.out.print("Enter number choice: ");
@@ -86,11 +89,20 @@ public class JetsApp {
                     airField.removeJetFromFleet();
                     break;
 			case 9:
+					airField.addAPilot();
+				
+				break;
+			case 10:
+				airField.listPilots();
+				
+			break;
+//				
+			case 11:
 				System.out.println("Exiting...");
 				running = false;
 				break;
-//                default:
-//                    System.out.println("Invalid choice. Please try again.");
+                default:
+                    System.out.println("Invalid choice. Please try again.");
 			}
 		}
 	}
